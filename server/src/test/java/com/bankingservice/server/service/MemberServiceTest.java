@@ -26,9 +26,9 @@ public class MemberServiceTest {
         memberForm.setId("권은비");
         memberForm.setPw("1234");
 
-        boolean result = memberService.login(memberForm);
+        IllegalStateException e = assertThrows(IllegalStateException.class, ()-> memberService.login(memberForm));
 
-        assertThat(result).isEqualTo(false);
+        assertThat(e.getMessage()).isEqualTo("아이디 혹은 비밀번호가 다릅니다.");
 
     }
 
