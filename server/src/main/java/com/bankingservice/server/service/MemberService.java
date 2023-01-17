@@ -18,10 +18,13 @@ public class MemberService {
     }
 
 
-    public boolean login(MemberForm memberForm){
+    public Member login(MemberForm memberForm){
 
         Member member = memberRepository.findByIdAndPw(memberForm);
+        if(member == null){
+            throw new IllegalStateException("아이디 혹은 비밀번호가 다릅니다.");
+        }
 
-        return true;
+        return member;
     }
 }

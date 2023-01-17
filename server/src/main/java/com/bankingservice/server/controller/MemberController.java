@@ -18,8 +18,8 @@ public class MemberController {
 
     @PostMapping("/login")
     public Member login(MemberForm memberForm){
-        boolean loginResult = memberService.login(memberForm);
+        Member member = memberService.login(memberForm);
 
-        return new Member();
+        return member;
     }
 }

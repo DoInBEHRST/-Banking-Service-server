@@ -17,8 +17,15 @@ public class InmemoryMemberRepository implements MemberRepository{
         String id = memberForm.getId();
 
         Member member = data.get(id);
-        System.out.println(member);
+        if(member == null){
+            return null;
+        }
 
-        return null;
+        String pw = memberForm.getPw();
+        if(!member.getPw().equals(pw)){
+            return null;
+        }
+
+        return member;
     }
 }
