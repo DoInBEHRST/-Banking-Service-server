@@ -21,3 +21,6 @@ chore : 빌드 업무 수정, 패키지 매니저 수정
 제목 태그만 따라하고 내용은 적당히 알아서 적기 ㅋ
 
 참고 : https://udacity.github.io/git-styleguide/
+
+### 자바 스타일 컨벤션
+구글 자바 스타일 가이드 : https://google.github.io/styleguide/javaguide.html
