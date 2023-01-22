@@ -1,6 +1,6 @@
 package com.bankingservice.server.repository;
 
-import com.bankingservice.server.controller.MemberForm;
+import com.bankingservice.server.controller.MemberLoginForm;
 import com.bankingservice.server.domain.Member;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,16 +12,16 @@ public class InmemoryMemberRepository implements MemberRepository{
     private final Map<String, Member> data = new HashMap<>();
 
     @Override
-    public Member findByIdAndPw(MemberForm memberForm) {
+    public Member findByIdAndPw(MemberLoginForm memberLoginForm) {
 
-        String id = memberForm.getId();
+        String id = memberLoginForm.getId();
 
         Member member = data.get(id);
         if(member == null){
             return null;
         }
 
-        String pw = memberForm.getPw();
+        String pw = memberLoginForm.getPw();
         if(!member.getPw().equals(pw)){
             return null;
         }

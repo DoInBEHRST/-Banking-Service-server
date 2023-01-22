@@ -1,6 +1,6 @@
 package com.bankingservice.server.service;
 
-import com.bankingservice.server.controller.MemberForm;
+import com.bankingservice.server.controller.MemberLoginForm;
 import com.bankingservice.server.domain.Member;
 import com.bankingservice.server.repository.InmemoryMemberRepository;
 import com.bankingservice.server.repository.MemberRepository;
@@ -18,9 +18,9 @@ public class MemberService {
     }
 
 
-    public Member login(MemberForm memberForm){
+    public Member login(MemberLoginForm memberLoginForm){
 
-        Member member = memberRepository.findByIdAndPw(memberForm);
+        Member member = memberRepository.findByIdAndPw(memberLoginForm);
         if(member == null){
             throw new IllegalStateException("아이디 혹은 비밀번호가 다릅니다.");
         }

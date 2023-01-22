@@ -1,9 +1,7 @@
 package com.bankingservice.server.service;
 
-import com.bankingservice.server.controller.MemberForm;
-import com.bankingservice.server.domain.Member;
+import com.bankingservice.server.controller.MemberLoginForm;
 import com.bankingservice.server.repository.InmemoryMemberRepository;
-import com.bankingservice.server.repository.MemberRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
@@ -22,11 +20,11 @@ public class MemberServiceTest {
     @Test
     void 없는_사람_로그인(){
 
-        MemberForm memberForm = new MemberForm();
-        memberForm.setId("권은비");
-        memberForm.setPw("1234");
+        MemberLoginForm memberLoginForm = new MemberLoginForm();
+        memberLoginForm.setId("권은비");
+        memberLoginForm.setPw("1234");
 
-        IllegalStateException e = assertThrows(IllegalStateException.class, ()-> memberService.login(memberForm));
+        IllegalStateException e = assertThrows(IllegalStateException.class, ()-> memberService.login(memberLoginForm));
 
         assertThat(e.getMessage()).isEqualTo("아이디 혹은 비밀번호가 다릅니다.");
 

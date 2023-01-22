@@ -17,8 +17,8 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public Member login(MemberForm memberForm){
-        Member member = memberService.login(memberForm);
+    public Member login(MemberLoginForm memberLoginForm){
+        Member member = memberService.login(memberLoginForm);
 
         return member;
     }
