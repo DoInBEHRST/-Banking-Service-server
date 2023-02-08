@@ -11,6 +11,9 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    private final String STCD_USE = "01";
+    private final String STCD_NOT_USE = "02";
+
     @Autowired
     public MemberService(InmemoryMemberRepository memberRepository) {
         this.memberRepository = memberRepository;
@@ -42,5 +45,17 @@ public class MemberService {
         }
 
         return memberRepository.save(member);
+    }
+
+    public boolean withdrawal(String id) {
+        Member deleteMember = memberRepository.findById(id);
+        if (deleteMember == null) {
+            throw new IllegalStateException("존재하지 않는 아이디 입니다.");
+        }
+
+        deleteMember.setStcd(STCD_NOT_USE);
+        memberRepository.save(deleteMember);
+
+        return true;
     }
 }

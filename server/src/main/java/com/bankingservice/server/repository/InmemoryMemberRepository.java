@@ -9,8 +9,7 @@ import org.springframework.stereotype.Repository;
 public class InmemoryMemberRepository implements MemberRepository {
 
     private final Map<String, Member> data = new HashMap<>();
-    private final String STCD_USE = "01";
-    private final String STCD_NOT_USE = "02";
+
 
     @Override
     public Member save(Member member) {
