@@ -1,5 +1,6 @@
 package com.bankingservice.server.domain;
 
+import com.bankingservice.server.constants.MemberStcd;
 import java.text.SimpleDateFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,13 +16,13 @@ import lombok.Setter;
 public class Member {
 
     private long mbno;
-    private String stcd;
+    private Enum<MemberStcd> stcd;
     private String id;
     private String pw;
     private String regNum;
     private String prtId;
     private long pnt;
-    private SimpleDateFormat lstMdfMbno;
+    private String lstMdfMbno;
     private SimpleDateFormat lstMdfDatetime;
 
 
