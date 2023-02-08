@@ -1,6 +1,7 @@
 package com.bankingservice.server.repository;
 
 import com.bankingservice.server.controller.MemberLoginForm;
+import com.bankingservice.server.controller.MemberSignupForm;
 import com.bankingservice.server.domain.Member;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,12 +12,30 @@ public class InmemoryMemberRepository implements MemberRepository {
 
     private final Map<String, Member> data = new HashMap<>();
 
+
+    @Override
+    public Member save(MemberSignupForm memberSignupForm) {
+
+        Member newMember = Member.builder()
+            .id(memberSignupForm.getId())
+            .pw(memberSignupForm.getPw())
+            .regNum(memberSignupForm.getRegNum())
+            .build();
+
+        // 나중에 부모 아이디 있으면 넣어주기
+//        if (memberSignupForm.isPrt()){
+//            Member parents = data.get(memberSignupForm.getPrtId());
+//            
+//        }
+
+        data.put(newMember.getId(), newMember);
+
+        return newMember;
+    }
+
     @Override
     public Member findById(String id) {
-
-        Member member = data.get(id);
-
-        return member;
+        return data.get(id);
     }
 
     @Override
