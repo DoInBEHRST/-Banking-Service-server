@@ -19,7 +19,7 @@ public class Member {
     private String id;
     private String pw;
     private String regNum;
-    private long prtMbno;
+    private String prtId;
     private long pnt;
     private SimpleDateFormat lstMdfMbno;
     private SimpleDateFormat lstMdfDatetime;
