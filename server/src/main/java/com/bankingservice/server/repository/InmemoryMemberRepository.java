@@ -11,7 +11,8 @@ import org.springframework.stereotype.Repository;
 public class InmemoryMemberRepository implements MemberRepository {
 
     private final Map<String, Member> data = new HashMap<>();
-
+    private final String STCD_USE = "01";
+    private final String STCD_NOT_USE = "02";
 
     @Override
     public Member save(MemberSignupForm memberSignupForm) {
@@ -20,6 +21,7 @@ public class InmemoryMemberRepository implements MemberRepository {
             .id(memberSignupForm.getId())
             .pw(memberSignupForm.getPw())
             .regNum(memberSignupForm.getRegNum())
+            .stcd(STCD_USE)
             .build();
 
         // 나중에 부모 아이디 있으면 넣어주기
