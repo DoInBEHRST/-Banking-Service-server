@@ -3,6 +3,7 @@ package com.bankingservice.server.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.bankingservice.server.constants.MemberStcd;
 import com.bankingservice.server.domain.Member;
 import com.bankingservice.server.repository.InmemoryMemberRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -48,6 +49,7 @@ public class MemberServiceTest {
         assertThat(newMember.getId()).isEqualTo("권은비");
         assertThat(newMember.getPw()).isEqualTo("1234");
         assertThat(newMember.getRegNum()).isEqualTo("1234-1234");
+        assertThat(newMember.getStcd()).isEqualTo(MemberStcd.STCD_USE);
 
     }
 
