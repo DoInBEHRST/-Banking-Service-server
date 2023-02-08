@@ -94,4 +94,25 @@ public class MemberServiceTest {
 
     }
 
+    @Test
+    void 회원탈퇴_테스트() {
+
+        Member member = Member.builder()
+            .id("권은비")
+            .pw("1234")
+            .regNum("1234-1234")
+            .prtId(null)
+            .build();
+
+        memberService.signup(member);
+        memberService.withdrawal(member.getId());
+
+        IllegalStateException e = assertThrows(IllegalStateException.class,
+            () -> memberService.login(member.getId(), member.getPw()));
+
+        assertThat(e.getMessage()).isEqualTo("존재하지 않는 아이디 입니다.");
+
+
+    }
+
 }
