@@ -7,9 +7,17 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class InmemoryMemberRepository implements MemberRepository{
+public class InmemoryMemberRepository implements MemberRepository {
 
     private final Map<String, Member> data = new HashMap<>();
+
+    @Override
+    public Member findById(String id) {
+
+        Member member = data.get(id);
+
+        return member;
+    }
 
     @Override
     public Member findByIdAndPw(MemberLoginForm memberLoginForm) {
@@ -17,7 +25,7 @@ public class InmemoryMemberRepository implements MemberRepository{
         String id = memberLoginForm.getId();
 
         Member member = data.get(id);
-        if(member == null){
+        if (member == null) {
             return null;
         }
 
