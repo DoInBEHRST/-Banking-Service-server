@@ -18,11 +18,20 @@ public class MemberController {
 
     @PostMapping("/login")
     public Member login(MemberLoginForm memberLoginForm) {
-        return memberService.login(memberLoginForm);
+        return memberService.login(memberLoginForm.getId(), memberLoginForm.getPw());
     }
 
     @PostMapping("/signup")
     public Member signup(MemberSignupForm memberSignupForm) {
-        return memberService.signup(memberSignupForm);
+        Member newMember = Member.builder()
+            .id(memberSignupForm.getId())
+            .pw(memberSignupForm.getPw())
+            .build();
+
+        if (memberSignupForm.isPrt()) {
+            newMember.setPrtId(memberSignupForm.getPrtId());
+        }
+
+        return memberService.signup(newMember);
     }
 }

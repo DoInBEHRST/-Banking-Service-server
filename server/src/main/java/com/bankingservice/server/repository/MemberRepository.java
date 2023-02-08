@@ -1,14 +1,12 @@
 package com.bankingservice.server.repository;
 
-import com.bankingservice.server.controller.MemberLoginForm;
-import com.bankingservice.server.controller.MemberSignupForm;
 import com.bankingservice.server.domain.Member;
 
 public interface MemberRepository {
 
-    Member save(MemberSignupForm memberSignupForm);
+    Member save(Member member);
 
     Member findById(String id);
 
-    Member findByIdAndPw(MemberLoginForm memberLoginForm);
+    Member findByIdAndPw(String id, String pw);
 }

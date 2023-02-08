@@ -1,7 +1,5 @@
 package com.bankingservice.server.service;
 
-import com.bankingservice.server.controller.MemberLoginForm;
-import com.bankingservice.server.controller.MemberSignupForm;
 import com.bankingservice.server.domain.Member;
 import com.bankingservice.server.repository.InmemoryMemberRepository;
 import com.bankingservice.server.repository.MemberRepository;
@@ -19,9 +17,8 @@ public class MemberService {
     }
 
 
-    public Member login(MemberLoginForm memberLoginForm) {
-
-        Member member = memberRepository.findByIdAndPw(memberLoginForm);
+    public Member login(String id, String pw) {
+        Member member = memberRepository.findByIdAndPw(id, pw);
         if (member == null) {
             throw new IllegalStateException("아이디 혹은 비밀번호가 다릅니다.");
         }
@@ -29,20 +26,21 @@ public class MemberService {
         return member;
     }
 
-    public Member signup(MemberSignupForm memberSignupForm) {
+    public Member signup(Member member) {
 
-        Member idCheckMember = memberRepository.findById(memberSignupForm.getId());
+        Member idCheckMember = memberRepository.findById(member.getId());
         if (idCheckMember != null) {
             throw new IllegalStateException("이미 존재하는 아이디 입니다.");
         }
 
-        if (memberSignupForm.isPrt()) {
-            Member validParents = memberRepository.findById(memberSignupForm.getPrtId());
+        String prtId = member.getPrtId();
+        if (prtId != null) {
+            Member validParents = memberRepository.findById(prtId);
             if (validParents == null) {
                 throw new IllegalStateException("잘못된 부모 아이디 입니다.");
             }
         }
 
-        return memberRepository.save(memberSignupForm);
+        return memberRepository.save(member);
     }
 }
