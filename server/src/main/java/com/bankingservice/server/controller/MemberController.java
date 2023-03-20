@@ -3,6 +3,7 @@ package com.bankingservice.server.controller;
 import com.bankingservice.server.domain.Member;
 import com.bankingservice.server.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -18,12 +19,13 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public Member login(MemberLoginForm memberLoginForm) {
-        return memberService.login(memberLoginForm.getId(), memberLoginForm.getPw());
+    public ResponseEntity<Member> login(MemberLoginForm memberLoginForm) {
+        Member member = memberService.login(memberLoginForm.getId(), memberLoginForm.getPw());
+        return ResponseEntity.ok(member);
     }
 
     @PostMapping("/signup")
-    public Member signup(MemberSignupForm memberSignupForm) {
+    public ResponseEntity<Member> signup(MemberSignupForm memberSignupForm) {
         Member newMember = Member.builder()
             .id(memberSignupForm.getId())
             .pw(memberSignupForm.getPw())
@@ -33,11 +35,14 @@ public class MemberController {
             newMember.setPrtId(memberSignupForm.getPrtId());
         }
 
-        return memberService.signup(newMember);
+        Member member = memberService.signup(newMember);
+
+        return ResponseEntity.ok(member);
     }
 
     @PutMapping("/withdrawal")
-    public boolean withdrawal(String id) {
-        return memberService.withdrawal(id);
+    public ResponseEntity<Boolean> withdrawal(String id) {
+        Boolean result = memberService.withdrawal(id);
+        return ResponseEntity.ok(result);
     }
 }
