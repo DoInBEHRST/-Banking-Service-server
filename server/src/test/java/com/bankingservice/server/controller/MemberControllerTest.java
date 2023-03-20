@@ -2,13 +2,16 @@ package com.bankingservice.server.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.bankingservice.server.DTO.ReponseErrorMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -41,7 +44,19 @@ public class MemberControllerTest {
                     .contentType(MediaType.APPLICATION_JSON)
             )
             .andDo(print())
-            .andExpect(status().isUnauthorized());
+            .andExpect(
+                status().isUnauthorized()
+            )
+            .andExpect(
+                content().json(
+                    mapper.writeValueAsString(
+                        ReponseErrorMessage.builder()
+                            .code(HttpStatus.UNAUTHORIZED.value())
+                            .message("아이디 혹은 비밀번호가 다릅니다.")
+                            .build()
+                    )
+                )
+            );
 
 
     }
