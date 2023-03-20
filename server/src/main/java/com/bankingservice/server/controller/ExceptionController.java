@@ -1,6 +1,6 @@
 package com.bankingservice.server.controller;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ExceptionController {
 
-    @AllArgsConstructor
+    @Builder
     @Getter
     static class ResponseErrorMessage {
 
+        private int code;
         private String message;
+
     }
 
     // 401 에러
@@ -25,7 +27,10 @@ public class ExceptionController {
         return ResponseEntity
             .status(HttpStatus.UNAUTHORIZED)
             .body(
-                new ResponseErrorMessage(exception.getMessage())
+                ResponseErrorMessage.builder()
+                    .code(HttpStatus.UNAUTHORIZED.value())
+                    .message(exception.getMessage())
+                    .build()
             );
     }
 
