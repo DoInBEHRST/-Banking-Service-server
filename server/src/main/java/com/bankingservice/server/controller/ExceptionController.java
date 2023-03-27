@@ -1,6 +1,6 @@
 package com.bankingservice.server.controller;
 
-import com.bankingservice.server.DTO.ReponseErrorMessage;
+import com.bankingservice.server.dto.ReponseErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

@@ -1,4 +1,4 @@
-package com.bankingservice.server.DTO;
+package com.bankingservice.server.dto;
 
 import lombok.Builder;
 import lombok.Getter;
