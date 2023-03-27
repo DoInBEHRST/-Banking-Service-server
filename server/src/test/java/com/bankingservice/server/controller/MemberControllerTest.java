@@ -5,7 +5,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.bankingservice.server.dto.ReponseErrorMessage;
+import com.bankingservice.server.dto.ResponseErrorMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +50,7 @@ public class MemberControllerTest {
             .andExpect(
                 content().json(
                     mapper.writeValueAsString(
-                        ReponseErrorMessage.builder()
+                        ResponseErrorMessage.builder()
                             .code(HttpStatus.UNAUTHORIZED.value())
                             .message("아이디 혹은 비밀번호가 다릅니다.")
                             .build()

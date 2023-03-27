@@ -1,6 +1,6 @@
 package com.bankingservice.server.controller;
 
-import com.bankingservice.server.dto.ReponseErrorMessage;
+import com.bankingservice.server.dto.ResponseErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -19,7 +19,7 @@ public class ExceptionController {
         return ResponseEntity
             .status(HttpStatus.UNAUTHORIZED)
             .body(
-                ReponseErrorMessage.builder()
+                ResponseErrorMessage.builder()
                     .code(HttpStatus.UNAUTHORIZED.value())
                     .message(exception.getMessage())
                     .build()
