@@ -6,12 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.bankingservice.server.constants.MemberStcd;
 import com.bankingservice.server.domain.Member;
 import com.bankingservice.server.repository.InmemoryMemberRepository;
+import com.bankingservice.server.repository.MemberRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 public class MemberServiceTest {
 
     MemberService memberService;
-    InmemoryMemberRepository memberRepository;
+    MemberRepository memberRepository;
 
     @BeforeEach
     public void beforeEach(){
