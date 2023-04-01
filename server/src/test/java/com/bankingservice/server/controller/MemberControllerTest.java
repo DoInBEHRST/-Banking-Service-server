@@ -31,7 +31,7 @@ public class MemberControllerTest {
     ObjectMapper mapper;
 
     @Test
-    void login_테스트() throws Exception {
+    void 로그인_실패_테스트() throws Exception {
 
         String id = "권은비";
         String pw = "1234";
