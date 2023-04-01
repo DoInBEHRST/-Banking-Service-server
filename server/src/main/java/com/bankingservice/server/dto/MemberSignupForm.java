@@ -1,4 +1,4 @@
-package com.bankingservice.server.controller;
+package com.bankingservice.server.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -12,12 +12,19 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class MemberLoginForm {
+public class MemberSignupForm {
 
     @NotBlank
     private String id;
 
     @NotBlank
     private String pw;
+
+    private String regNum;
+
+    @NotBlank
+    private boolean isPrt;
+
+    private String prtId;
 
 }
