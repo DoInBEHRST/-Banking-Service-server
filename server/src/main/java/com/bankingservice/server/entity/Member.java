@@ -9,15 +9,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.DynamicInsert;
 
 @Entity
 @Getter
 @Setter
 @SuperBuilder
-@DynamicInsert
+@NoArgsConstructor
 @Table(name = "HRST_MEMM_MEM_MNGMT")
 public class Member extends DateTime {
 
@@ -25,7 +25,7 @@ public class Member extends DateTime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long MBNO;
 
-    @Column(columnDefinition = "varchar(10) default `01`")
+    @Column
     private MemberStcd STCD;
 
     @Column(unique = true, nullable = false)
@@ -43,7 +43,7 @@ public class Member extends DateTime {
     @Column
     private Long PRT_MBNO;
 
-    @Column(columnDefinition = "INT default 0")
+    @Column
     private Long PNT;
 
     @Column
