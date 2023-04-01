@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class MemberController {
@@ -21,19 +22,19 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<UserInfoDTO> login(MemberLoginForm memberLoginForm) {
+    public ResponseEntity<UserInfoDTO> login(@RequestBody MemberLoginForm memberLoginForm) {
         UserInfoDTO member = memberService.login(memberLoginForm.getId(), memberLoginForm.getPw());
         return ResponseEntity.ok(member);
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<UserInfoDTO> signup(MemberSignupForm memberSignupForm) {
+    public ResponseEntity<UserInfoDTO> signup(@RequestBody MemberSignupForm memberSignupForm) {
         UserInfoDTO member = memberService.signup(memberSignupForm);
         return ResponseEntity.ok(member);
     }
 
     @PutMapping("/withdrawal")
-    public ResponseEntity<Boolean> withdrawal(String id) {
+    public ResponseEntity<Boolean> withdrawal(@RequestBody String id) {
         Boolean result = memberService.withdrawal(id);
         return ResponseEntity.ok(result);
     }
