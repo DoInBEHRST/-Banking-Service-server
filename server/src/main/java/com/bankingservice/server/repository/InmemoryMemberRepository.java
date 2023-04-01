@@ -1,39 +1,57 @@
 package com.bankingservice.server.repository;
 
-import com.bankingservice.server.domain.Member;
-import java.util.HashMap;
-import java.util.Map;
+import com.bankingservice.server.entity.Member;
 
 public class InmemoryMemberRepository implements MemberRepository {
 
-    private final Map<String, Member> data = new HashMap<>();
-
-
     @Override
     public Member save(Member member) {
-
-        data.put(member.getId(), member);
-
-        return member;
+        return null;
     }
 
     @Override
-    public Member findById(String id) {
-        return data.get(id);
+    public Member findByID(String id) {
+        return null;
     }
 
     @Override
-    public Member findByIdAndPw(String id, String pw) {
-
-        Member member = data.get(id);
-        if (member == null) {
-            return null;
-        }
-
-        if (!member.getPw().equals(pw)) {
-            return null;
-        }
-
-        return member;
+    public Member findByIDAndPW(String id, String pw) {
+        return null;
     }
+
+    @Override
+    public Member findByMBNO(Long MBNO) {
+        return null;
+    }
+
+//    private final Map<String, UserInfoDTO> data = new HashMap<>();
+//
+//
+//    @Override
+//    public UserInfoDTO save(UserInfoDTO member) {
+//
+//        data.put(member.getId(), member);
+//
+//        return member;
+//    }
+//
+//    @Override
+//    public UserInfoDTO findById(String id) {
+//        return data.get(id);
+//    }
+//
+//    @Override
+//    public UserInfoDTO findByIdAndPw(String id, String pw) {
+//
+//        UserInfoDTO member = data.get(id);
+//        if (member == null) {
+//            return null;
+//        }
+//
+//        if (!member.getPw().equals(pw)) {
+//            return null;
+//        }
+//
+//        return member;
+//    }
 }

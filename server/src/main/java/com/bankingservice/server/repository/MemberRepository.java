@@ -1,12 +1,14 @@
 package com.bankingservice.server.repository;
 
-import com.bankingservice.server.domain.Member;
+import com.bankingservice.server.entity.Member;
 
 public interface MemberRepository {
 
     Member save(Member member);
 
-    Member findById(String id);
+    Member findByID(String id);
 
-    Member findByIdAndPw(String id, String pw);
+    Member findByIDAndPW(String id, String pw);
+
+    Member findByMBNO(Long MBNO);
 }
