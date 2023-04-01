@@ -6,7 +6,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.bankingservice.server.dto.MemberLoginForm;
+import com.bankingservice.server.dto.MemberSignupForm;
 import com.bankingservice.server.dto.ResponseErrorMessage;
+import com.bankingservice.server.dto.UserInfoDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +17,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Transactional
 public class MemberControllerTest {
 
     @Autowired
@@ -59,6 +63,39 @@ public class MemberControllerTest {
                 )
             );
 
+
+    }
+
+    @Test
+    void 회원가입_테스트() throws Exception {
+
+        String body = mapper.writeValueAsString(
+            MemberSignupForm.builder()
+                .id("권은비")
+                .pw("1234")
+                .regNum("1234-1234")
+                .isPrt(false)
+                .build()
+        );
+
+        mvc.perform(
+                post("/signup")
+                    .content(body)
+                    .contentType(MediaType.APPLICATION_JSON)
+            )
+            .andDo(print())
+            .andExpect(
+                status().isOk()
+            )
+            .andExpect(
+                content().json(
+                    mapper.writeValueAsString(
+                        UserInfoDTO.builder()
+                            .id("권은비")
+                            .build()
+                    )
+                )
+            );
 
     }
 }
