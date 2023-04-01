@@ -62,8 +62,10 @@ public class MemberService {
 
         Member newMember = memberRepository.save(
             Member.builder()
+                .ID(memberSignupForm.getId())
                 .PW(memberSignupForm.getPw())
                 .PRT_MBNO(parents != null ? parents.getMBNO() : null)
+                .PNT(0L)
                 .build()
         );
 
