@@ -98,4 +98,65 @@ public class MemberControllerTest {
             );
 
     }
+
+    @Test
+    void 로그인_성공_테스트() throws Exception {
+
+        String id = "권은비";
+        String pw = "1234";
+
+        String newMemberInfo = mapper.writeValueAsString(
+            MemberSignupForm.builder()
+                .id(id)
+                .pw(pw)
+                .regNum("1234-1234")
+                .isPrt(false)
+                .build()
+        );
+
+        mvc.perform(
+                post("/signup")
+                    .content(newMemberInfo)
+                    .contentType(MediaType.APPLICATION_JSON)
+            )
+            .andDo(print())
+            .andExpect(
+                status().isOk()
+            )
+            .andExpect(
+                content().json(
+                    mapper.writeValueAsString(
+                        UserInfoDTO.builder()
+                            .id(id)
+                            .build()
+                    )
+                )
+            );
+
+        String loginInfo = mapper.writeValueAsString(
+            MemberLoginForm.builder()
+                .id(id)
+                .pw(pw)
+                .build()
+        );
+
+        mvc.perform(
+                post("/login")
+                    .content(loginInfo)
+                    .contentType(MediaType.APPLICATION_JSON)
+            )
+            .andDo(print())
+            .andExpect(
+                status().isOk()
+            )
+            .andExpect(
+                content().json(
+                    mapper.writeValueAsString(
+                        UserInfoDTO.builder()
+                            .id(id)
+                            .build()
+                    )
+                )
+            );
+    }
 }
