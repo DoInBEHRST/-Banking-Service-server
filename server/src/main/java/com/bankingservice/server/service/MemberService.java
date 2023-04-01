@@ -2,6 +2,7 @@ package com.bankingservice.server.service;
 
 import static com.bankingservice.server.constants.MemberStcd.STCD_NOT_USE;
 
+import com.bankingservice.server.constants.MemberStcd;
 import com.bankingservice.server.dto.MemberSignupForm;
 import com.bankingservice.server.dto.UserInfoDTO;
 import com.bankingservice.server.entity.Member;
@@ -37,7 +38,7 @@ public class MemberService {
         UserInfoDTO loginMember = UserInfoDTO.builder()
             .id(member.getID())
             .nm(member.getNM())
-            .prtId(prtMember.getID())
+            .prtId(prtMember != null ? prtMember.getID() : null)
             .pnt(member.getPNT())
             .build();
 
@@ -64,6 +65,7 @@ public class MemberService {
             Member.builder()
                 .ID(memberSignupForm.getId())
                 .PW(memberSignupForm.getPw())
+                .STCD(MemberStcd.STCD_USE)
                 .PRT_MBNO(parents != null ? parents.getMBNO() : null)
                 .PNT(0L)
                 .build()
