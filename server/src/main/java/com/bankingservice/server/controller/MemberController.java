@@ -1,6 +1,8 @@
 package com.bankingservice.server.controller;
 
-import com.bankingservice.server.domain.Member;
+import com.bankingservice.server.dto.MemberLoginForm;
+import com.bankingservice.server.dto.MemberSignupForm;
+import com.bankingservice.server.dto.UserInfoDTO;
 import com.bankingservice.server.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,24 +21,14 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Member> login(MemberLoginForm memberLoginForm) {
-        Member member = memberService.login(memberLoginForm.getId(), memberLoginForm.getPw());
+    public ResponseEntity<UserInfoDTO> login(MemberLoginForm memberLoginForm) {
+        UserInfoDTO member = memberService.login(memberLoginForm.getId(), memberLoginForm.getPw());
         return ResponseEntity.ok(member);
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<Member> signup(MemberSignupForm memberSignupForm) {
-        Member newMember = Member.builder()
-            .id(memberSignupForm.getId())
-            .pw(memberSignupForm.getPw())
-            .build();
-
-        if (memberSignupForm.isPrt()) {
-            newMember.setPrtId(memberSignupForm.getPrtId());
-        }
-
-        Member member = memberService.signup(newMember);
-
+    public ResponseEntity<UserInfoDTO> signup(MemberSignupForm memberSignupForm) {
+        UserInfoDTO member = memberService.signup(memberSignupForm);
         return ResponseEntity.ok(member);
     }
 
