@@ -34,8 +34,8 @@ public class MemberController {
     }
 
     @PutMapping("/withdrawal")
-    public ResponseEntity<Boolean> withdrawal(@RequestBody String id) {
-        Boolean result = memberService.withdrawal(id);
+    public ResponseEntity<Boolean> withdrawal(@RequestBody MemberLoginForm memberLoginForm) {
+        Boolean result = memberService.withdrawal(memberLoginForm);
         return ResponseEntity.ok(result);
     }
 }

@@ -3,6 +3,7 @@ package com.bankingservice.server.service;
 import static com.bankingservice.server.constants.MemberStcd.STCD_NOT_USE;
 
 import com.bankingservice.server.constants.MemberStcd;
+import com.bankingservice.server.dto.MemberLoginForm;
 import com.bankingservice.server.dto.MemberSignupForm;
 import com.bankingservice.server.dto.UserInfoDTO;
 import com.bankingservice.server.entity.Member;
@@ -81,8 +82,12 @@ public class MemberService {
         return newMemberInfo;
     }
 
-    public boolean withdrawal(String id) {
-        Member deleteMember = memberRepository.findByID(id);
+    public boolean withdrawal(MemberLoginForm memberLoginForm) {
+
+        String id = memberLoginForm.getId();
+        String pw = memberLoginForm.getPw();
+
+        Member deleteMember = memberRepository.findByIDAndPW(id, pw);
         if (deleteMember == null) {
             throw new IllegalStateException("존재하지 않는 아이디 입니다.");
         }

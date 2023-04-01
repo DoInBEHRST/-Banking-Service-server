@@ -7,6 +7,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 import com.bankingservice.server.constants.MemberStcd;
+import com.bankingservice.server.dto.MemberLoginForm;
 import com.bankingservice.server.dto.MemberSignupForm;
 import com.bankingservice.server.dto.UserInfoDTO;
 import com.bankingservice.server.entity.Member;
@@ -138,17 +139,25 @@ public class MemberServiceTest {
     @Test
     void 회원탈퇴_테스트() {
 
+        String id = "권은비";
+        String pw = "1234";
+
         MemberSignupForm memberInfo = MemberSignupForm.builder()
-            .id("권은비")
-            .pw("1234")
+            .id(id)
+            .pw(pw)
             .regNum("1234-1234")
             .isPrt(true)
             .prtId(null)
             .build();
 
+        MemberLoginForm memberLoginForm = MemberLoginForm.builder()
+            .id(id)
+            .pw(pw)
+            .build();
+
         Member member = Member.builder()
-            .ID("권은비")
-            .PW("1234")
+            .ID(id)
+            .PW(pw)
             .REG_NUM("1234-1234")
             .STCD(MemberStcd.STCD_USE)
             .PNT(0L)
@@ -159,15 +168,15 @@ public class MemberServiceTest {
         memberService.signup(memberInfo);
 
         // 회원 저장 후 조회 시
-        when(memberRepository.findByID("권은비")).thenReturn(member);
+        when(memberRepository.findByIDAndPW(id, pw)).thenReturn(member);
 
         // 회원 탈퇴
-        memberService.withdrawal(memberInfo.getId());
+        memberService.withdrawal(memberLoginForm);
 
         member.setSTCD(MemberStcd.STCD_NOT_USE);
 
         // 회원 로그인 시
-        when(memberRepository.findByIDAndPW("권은비", "1234")).thenReturn(member);
+        when(memberRepository.findByIDAndPW(id, pw)).thenReturn(member);
         IllegalStateException e = assertThrows(IllegalStateException.class,
             () -> memberService.login(memberInfo.getId(), memberInfo.getPw()));
 
