@@ -19,14 +19,14 @@ public class JpaMemberRepositoryTest {
     @Test
     void 맴버_저장_테스트() {
 
-        Member newMamber = Member.builder()
+        Member newMember = Member.builder()
             .ID("권은비")
             .PW("1234")
             .build();
 
-        Member result = memberRepository.save(newMamber);
+        Member result = memberRepository.save(newMember);
 
-        assertThat(result).isSameAs(newMamber);
+        assertThat(result).isSameAs(newMember);
 
     }
 
@@ -35,22 +35,22 @@ public class JpaMemberRepositoryTest {
 
         String id = "권은비";
 
-        Member newMamber = Member.builder()
+        Member newMember = Member.builder()
             .ID(id)
             .PW("1234")
             .build();
 
-        Member newMamber2 = Member.builder()
+        Member newMember2 = Member.builder()
             .ID("사쿠라")
             .PW("1234")
             .build();
 
-        memberRepository.save(newMamber);
-        memberRepository.save(newMamber2);
+        memberRepository.save(newMember);
+        memberRepository.save(newMember2);
 
         Member findMember = memberRepository.findByID(id);
 
-        assertThat(newMamber).isSameAs(findMember);
+        assertThat(newMember).isSameAs(findMember);
 
     }
 
@@ -60,22 +60,22 @@ public class JpaMemberRepositoryTest {
         String id = "권은비";
         String pw = "1234";
 
-        Member newMamber = Member.builder()
+        Member newMember = Member.builder()
             .ID(id)
             .PW(pw)
             .build();
 
-        Member newMamber2 = Member.builder()
+        Member newMember2 = Member.builder()
             .ID("사쿠라")
             .PW("1234")
             .build();
 
-        memberRepository.save(newMamber);
-        memberRepository.save(newMamber2);
+        memberRepository.save(newMember);
+        memberRepository.save(newMember2);
 
         Member findMember = memberRepository.findByIDAndPW(id, pw);
 
-        assertThat(newMamber).isSameAs(findMember);
+        assertThat(newMember).isSameAs(findMember);
 
     }
 
@@ -84,21 +84,21 @@ public class JpaMemberRepositoryTest {
 
         Long mbno = 0L;
 
-        Member newMamber = Member.builder()
+        Member newMember = Member.builder()
             .ID("권은비")
             .PW("1234")
             .build();
 
-        Member newMamber2 = Member.builder()
+        Member newMember2 = Member.builder()
             .ID("사쿠라")
             .PW("1234")
             .build();
 
-        memberRepository.save(newMamber);
-        memberRepository.save(newMamber2);
+        memberRepository.save(newMember);
+        memberRepository.save(newMember2);
         memberRepository.findByMBNO(mbno);
 
-        assertThat(newMamber.getID()).isEqualTo("권은비");
+        assertThat(newMember.getID()).isEqualTo("권은비");
     }
 
 
