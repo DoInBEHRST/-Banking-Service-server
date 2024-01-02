@@ -45,7 +45,7 @@ public class JpaMemberRepositoryTest {
             .PW("1234")
             .build();
 
-        Member savedMember = memberRepository.save(newMamber);
+        memberRepository.save(newMamber);
         memberRepository.save(newMamber2);
 
         Member findMember = memberRepository.findByID(id);
@@ -70,7 +70,7 @@ public class JpaMemberRepositoryTest {
             .PW("1234")
             .build();
 
-        Member savedMember = memberRepository.save(newMamber);
+        memberRepository.save(newMamber);
         memberRepository.save(newMamber2);
 
         Member findMember = memberRepository.findByIDAndPW(id, pw);
@@ -94,9 +94,9 @@ public class JpaMemberRepositoryTest {
             .PW("1234")
             .build();
 
-        Member savedMember = memberRepository.save(newMamber);
+        memberRepository.save(newMamber);
         memberRepository.save(newMamber2);
-        Member findMember = memberRepository.findByMBNO(mbno);
+        memberRepository.findByMBNO(mbno);
 
         assertThat(newMamber.getID()).isEqualTo("권은비");
     }
