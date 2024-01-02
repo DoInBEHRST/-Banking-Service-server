@@ -105,7 +105,7 @@ public class MemberServiceTest {
         when(memberRepository.findByID(any())).thenReturn(null);
         when(memberRepository.save(any())).thenReturn(member);
 
-        UserInfoDTO newMember = memberService.signup(memberInfo);
+        memberService.signup(memberInfo);
 
         when(memberRepository.findByID(any())).thenReturn(member);
 

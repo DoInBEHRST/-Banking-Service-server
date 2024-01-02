@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ExceptionController {
 
-
-
     // 401 에러
     @ExceptionHandler({
         IllegalStateException.class
