@@ -30,9 +30,7 @@ public class MemberService {
         }
 
         // 사용여부 체크
-        if (member.getSTCD().equals(STCD_NOT_USE)) {
-            throw new IllegalStateException("존재하지 않는 아이디 입니다.");
-        }
+        member.checkUsable();
 
         Member prtMember = memberRepository.findByMBNO(member.getPRT_MBNO());
 

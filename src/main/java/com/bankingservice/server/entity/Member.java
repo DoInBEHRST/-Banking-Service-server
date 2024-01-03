@@ -49,5 +49,9 @@ public class Member extends DateTime {
     @Column
     private Long LST_MDF_MBNO;
 
-
+    public void checkUsable() {
+        if (STCD.equals(MemberStcd.STCD_NOT_USE)) {
+            throw new IllegalStateException("존재하지 않는 아이디 입니다.");
+        }
+    }
 }
