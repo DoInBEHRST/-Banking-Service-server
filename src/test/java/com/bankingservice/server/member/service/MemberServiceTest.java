@@ -6,7 +6,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
-import com.bankingservice.server.member.constants.MemberStcd;
+import com.bankingservice.server.common.constants.DataStcd;
 import com.bankingservice.server.member.dto.MemberLoginForm;
 import com.bankingservice.server.member.dto.MemberSignupForm;
 import com.bankingservice.server.member.dto.UserInfoDTO;
@@ -64,7 +64,7 @@ public class MemberServiceTest {
             .ID("권은비")
             .PW("1234")
             .REG_NUM("1234-1234")
-            .STCD(MemberStcd.STCD_USE)
+            .STCD(DataStcd.STCD_USE)
             .PNT(0L)
             .build();
 
@@ -159,7 +159,7 @@ public class MemberServiceTest {
             .ID(id)
             .PW(pw)
             .REG_NUM("1234-1234")
-            .STCD(MemberStcd.STCD_USE)
+            .STCD(DataStcd.STCD_USE)
             .PNT(0L)
             .build();
 
@@ -173,7 +173,7 @@ public class MemberServiceTest {
         // 회원 탈퇴
         memberService.withdrawal(memberLoginForm);
 
-        member.setSTCD(MemberStcd.STCD_NOT_USE);
+        member.setSTCD(DataStcd.STCD_NOT_USE);
 
         // 회원 로그인 시
         when(memberRepository.findByIDAndPW(id, pw)).thenReturn(member);

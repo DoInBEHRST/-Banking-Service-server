@@ -1,6 +1,6 @@
 package com.bankingservice.server.member.entity;
 
-import com.bankingservice.server.member.constants.MemberStcd;
+import com.bankingservice.server.common.constants.DataStcd;
 import com.bankingservice.server.utill.DateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,7 +26,7 @@ public class Member extends DateTime {
     private Long MBNO;
 
     @Column
-    private MemberStcd STCD;
+    private DataStcd STCD;
 
     @Column(unique = true, nullable = false)
     private String ID;
@@ -50,7 +50,7 @@ public class Member extends DateTime {
     private Long LST_MDF_MBNO;
 
     public void checkUsable() {
-        if (STCD.equals(MemberStcd.STCD_NOT_USE)) {
+        if (STCD.equals(DataStcd.STCD_NOT_USE)) {
             throw new IllegalStateException("존재하지 않는 아이디 입니다.");
         }
     }

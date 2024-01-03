@@ -3,7 +3,7 @@ package com.bankingservice.server.member.entity;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.bankingservice.server.member.constants.MemberStcd;
+import com.bankingservice.server.common.constants.DataStcd;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +16,7 @@ public class MemberTest {
         Member member = Member.builder()
             .ID("권은비")
             .PW("1234")
-            .STCD(MemberStcd.STCD_NOT_USE)
+            .STCD(DataStcd.STCD_NOT_USE)
             .build();
 
         IllegalStateException e = assertThrows(IllegalStateException.class,

@@ -1,9 +1,9 @@
-package com.bankingservice.server.member.constants;
+package com.bankingservice.server.common.constants;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public enum MemberStcd {
+public enum DataStcd {
 
 
     // 사용

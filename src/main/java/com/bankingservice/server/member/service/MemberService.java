@@ -1,8 +1,8 @@
 package com.bankingservice.server.member.service;
 
-import static com.bankingservice.server.member.constants.MemberStcd.STCD_NOT_USE;
+import static com.bankingservice.server.common.constants.DataStcd.STCD_NOT_USE;
 
-import com.bankingservice.server.member.constants.MemberStcd;
+import com.bankingservice.server.common.constants.DataStcd;
 import com.bankingservice.server.member.dto.MemberLoginForm;
 import com.bankingservice.server.member.dto.MemberSignupForm;
 import com.bankingservice.server.member.dto.UserInfoDTO;
@@ -64,7 +64,7 @@ public class MemberService {
             Member.builder()
                 .ID(memberSignupForm.getId())
                 .PW(memberSignupForm.getPw())
-                .STCD(MemberStcd.STCD_USE)
+                .STCD(DataStcd.STCD_USE)
                 .PRT_MBNO(parents != null ? parents.getMBNO() : null)
                 .PNT(0L)
                 .build()
