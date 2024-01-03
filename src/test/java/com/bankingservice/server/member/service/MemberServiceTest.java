@@ -1,4 +1,4 @@
-package com.bankingservice.server.service;
+package com.bankingservice.server.member.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -6,12 +6,12 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
-import com.bankingservice.server.constants.MemberStcd;
-import com.bankingservice.server.dto.MemberLoginForm;
-import com.bankingservice.server.dto.MemberSignupForm;
-import com.bankingservice.server.dto.UserInfoDTO;
-import com.bankingservice.server.entity.Member;
-import com.bankingservice.server.repository.JpaMemberRepository;
+import com.bankingservice.server.member.constants.MemberStcd;
+import com.bankingservice.server.member.dto.MemberLoginForm;
+import com.bankingservice.server.member.dto.MemberSignupForm;
+import com.bankingservice.server.member.dto.UserInfoDTO;
+import com.bankingservice.server.member.entity.Member;
+import com.bankingservice.server.member.repository.JpaMemberRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

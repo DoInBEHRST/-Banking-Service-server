@@ -1,4 +1,4 @@
-package com.bankingservice.server.controller;
+package com.bankingservice.server.member.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -6,10 +6,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.bankingservice.server.dto.MemberLoginForm;
-import com.bankingservice.server.dto.MemberSignupForm;
-import com.bankingservice.server.dto.ResponseErrorMessage;
-import com.bankingservice.server.dto.UserInfoDTO;
+import com.bankingservice.server.common.dto.ResponseErrorMessage;
+import com.bankingservice.server.member.dto.MemberLoginForm;
+import com.bankingservice.server.member.dto.MemberSignupForm;
+import com.bankingservice.server.member.dto.UserInfoDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

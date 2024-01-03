@@ -1,9 +1,9 @@
-package com.bankingservice.server.controller;
+package com.bankingservice.server.member.controller;
 
-import com.bankingservice.server.dto.MemberLoginForm;
-import com.bankingservice.server.dto.MemberSignupForm;
-import com.bankingservice.server.dto.UserInfoDTO;
-import com.bankingservice.server.service.MemberService;
+import com.bankingservice.server.member.dto.MemberLoginForm;
+import com.bankingservice.server.member.dto.MemberSignupForm;
+import com.bankingservice.server.member.dto.UserInfoDTO;
+import com.bankingservice.server.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

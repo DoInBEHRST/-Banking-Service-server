@@ -1,9 +1,9 @@
-package com.bankingservice.server.entity;
+package com.bankingservice.server.member.entity;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.bankingservice.server.constants.MemberStcd;
+import com.bankingservice.server.member.constants.MemberStcd;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.bankingservice.server.constants;
+package com.bankingservice.server.member.constants;
 
 import lombok.AllArgsConstructor;
 

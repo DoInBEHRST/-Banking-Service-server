@@ -1,6 +1,5 @@
-package com.bankingservice.server.dto;
+package com.bankingservice.server.member.dto;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,12 +11,11 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class MemberLoginForm {
+public class UserInfoDTO {
 
-    @NotBlank
     private String id;
-
-    @NotBlank
-    private String pw;
+    private String nm;
+    private String prtId;
+    private long pnt;
 
 }

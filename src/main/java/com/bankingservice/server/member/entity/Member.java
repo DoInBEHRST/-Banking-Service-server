@@ -1,6 +1,6 @@
-package com.bankingservice.server.entity;
+package com.bankingservice.server.member.entity;
 
-import com.bankingservice.server.constants.MemberStcd;
+import com.bankingservice.server.member.constants.MemberStcd;
 import com.bankingservice.server.utill.DateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

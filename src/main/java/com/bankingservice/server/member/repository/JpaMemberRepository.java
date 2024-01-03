@@ -1,6 +1,6 @@
-package com.bankingservice.server.repository;
+package com.bankingservice.server.member.repository;
 
-import com.bankingservice.server.entity.Member;
+import com.bankingservice.server.member.entity.Member;
 import org.springframework.data.repository.Repository;
 
 public interface JpaMemberRepository extends Repository<Member, Long>, MemberRepository {

@@ -1,8 +1,8 @@
-package com.bankingservice.server.repository;
+package com.bankingservice.server.member.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.bankingservice.server.entity.Member;
+import com.bankingservice.server.member.entity.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

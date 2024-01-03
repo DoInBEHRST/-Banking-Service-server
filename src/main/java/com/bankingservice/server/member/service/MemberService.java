@@ -1,14 +1,14 @@
-package com.bankingservice.server.service;
+package com.bankingservice.server.member.service;
 
-import static com.bankingservice.server.constants.MemberStcd.STCD_NOT_USE;
+import static com.bankingservice.server.member.constants.MemberStcd.STCD_NOT_USE;
 
-import com.bankingservice.server.constants.MemberStcd;
-import com.bankingservice.server.dto.MemberLoginForm;
-import com.bankingservice.server.dto.MemberSignupForm;
-import com.bankingservice.server.dto.UserInfoDTO;
-import com.bankingservice.server.entity.Member;
-import com.bankingservice.server.repository.JpaMemberRepository;
-import com.bankingservice.server.repository.MemberRepository;
+import com.bankingservice.server.member.constants.MemberStcd;
+import com.bankingservice.server.member.dto.MemberLoginForm;
+import com.bankingservice.server.member.dto.MemberSignupForm;
+import com.bankingservice.server.member.dto.UserInfoDTO;
+import com.bankingservice.server.member.entity.Member;
+import com.bankingservice.server.member.repository.JpaMemberRepository;
+import com.bankingservice.server.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

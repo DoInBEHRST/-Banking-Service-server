@@ -1,4 +1,4 @@
-package com.bankingservice.server.dto;
+package com.bankingservice.server.member.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
