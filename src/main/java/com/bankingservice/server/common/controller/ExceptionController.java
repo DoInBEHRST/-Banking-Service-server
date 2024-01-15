@@ -24,4 +24,19 @@ public class ExceptionController {
             );
     }
 
+    // 500 에러
+    @ExceptionHandler({
+        IllegalArgumentException.class
+    })
+    public ResponseEntity<Object> handleBusinessException(final Exception exception) {
+        return ResponseEntity
+            .status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .body(
+                ResponseErrorMessage.builder()
+                    .code(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                    .message(exception.getMessage())
+                    .build()
+            );
+    }
+
 }
