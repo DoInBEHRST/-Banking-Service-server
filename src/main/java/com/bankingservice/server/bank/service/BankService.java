@@ -23,6 +23,7 @@ public class BankService {
         Bank bank = Bank.builder()
             .bnkCd(newBank.getBncCd())
             .BNK_NM(newBank.getBnkNm())
+            .STCD(DataStcd.STCD_USE)
             .build();
 
         if (bankRepository.existsByBnkCd(bank.getBnkCd())) {
