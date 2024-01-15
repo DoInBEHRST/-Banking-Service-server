@@ -25,11 +25,11 @@ public class BankService {
             .BNK_NM(newBank.getBnkNm())
             .build();
 
-        try {
-            bankRepository.save(bank);
-        } catch (Exception e) {
+        if (bankRepository.existsByBnkCd(bank.getBnkCd())) {
             throw new IllegalArgumentException("은행 정보 추가에 실패했습니다.");
         }
+
+        bankRepository.save(bank);
 
         return newBank;
     }

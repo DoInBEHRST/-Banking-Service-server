@@ -10,7 +10,6 @@ import com.bankingservice.server.bank.DTO.UsableBanks;
 import com.bankingservice.server.bank.entity.Bank;
 import com.bankingservice.server.bank.repository.JpaBankRepository;
 import com.bankingservice.server.common.constants.DataStcd;
-import jakarta.persistence.PersistenceException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -57,7 +56,7 @@ public class BankServiceTest {
 
         BankCodeAndName bank = new BankCodeAndName(1L, "국민은행");
 
-        when(bankRepository.save(any(Bank.class))).thenThrow(new PersistenceException());
+        when(bankRepository.existsByBnkCd(1L)).thenReturn(true);
 
         IllegalArgumentException e = assertThrows(
             IllegalArgumentException.class,

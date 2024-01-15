@@ -8,6 +8,8 @@ public interface BankRepository {
 
     Bank save(Bank bank);
 
+    boolean existsByBnkCd(Long bnkCd);
+
     List<Bank> findBySTCD(DataStcd stcd);
 
     Bank findByBnkCdAndSTCD(Long bnkCd, DataStcd stcd);

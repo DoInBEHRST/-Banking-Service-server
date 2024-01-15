@@ -11,6 +11,9 @@ public interface JpaBankRepository extends Repository<Bank, Long>, BankRepositor
     Bank save(Bank bank);
 
     @Override
+    boolean existsByBnkCd(Long bnkCd);
+
+    @Override
     List<Bank> findBySTCD(DataStcd stcd);
 
     @Override
