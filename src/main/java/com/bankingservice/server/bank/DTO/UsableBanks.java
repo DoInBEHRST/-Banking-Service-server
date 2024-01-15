@@ -8,18 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UsableBanks {
 
-    private List<BankCodeAndName> banks;
+    private final List<BankCodeAndName> banks = new ArrayList<>();
 
     public UsableBanks(List<Bank> data) {
-
-        banks = new ArrayList<>();
-
         data.forEach((bank ->
             banks.add(new BankCodeAndName(bank)))
         );
-    }
-
-    public int getSize() {
-        return banks.size();
     }
 }
