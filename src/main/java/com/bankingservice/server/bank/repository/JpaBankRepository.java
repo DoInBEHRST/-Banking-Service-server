@@ -8,6 +8,9 @@ import org.springframework.data.repository.Repository;
 public interface JpaBankRepository extends Repository<Bank, Long>, BankRepository {
 
     @Override
+    Bank save(Bank bank);
+
+    @Override
     List<Bank> findBySTCD(DataStcd stcd);
 
     @Override

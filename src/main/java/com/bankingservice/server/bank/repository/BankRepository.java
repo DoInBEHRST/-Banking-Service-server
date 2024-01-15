@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface BankRepository {
 
+    Bank save(Bank bank);
+
     List<Bank> findBySTCD(DataStcd stcd);
 
     Bank findByBnkCdAndSTCD(Long bnkCd, DataStcd stcd);
